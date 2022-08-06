@@ -1,4 +1,4 @@
-#Aqui contém todos os comandos utilizados no bootcamp Linux Experience pela Digital Innovation One!
+# Aqui contém todos os comandos utilizados no bootcamp Linux Experience pela Digital Innovation One!
 
 ## Gerenciando Usuários no Linux
     Criando e excluindo usuários:
@@ -28,12 +28,12 @@
 
         - nano criar_user.sh (nano é usado para ler um arquivo e no caso foi criado um script)
 
-  CRIANDO O SCRIPT
-#!/bin/bash
+    CRIANDO O SCRIPT
+        #!/bin/bash
 
-echo "Início do Script"
-useradd nomedouser -c "comentario" -s /bin/bash -m -p $(openssl passwd -crypt senha)   
-echo "Finalizando o script"
+        echo "Início do Script"
+        useradd nomedouser -c "comentario" -s /bin/bash -m -p $(openssl passwd -crypt senha)   
+        echo "Finalizando o script"
 
     COMANDO PARA DAR PERMISSÃO PARA EXECUÇÃO DO ARQUIVO
 
