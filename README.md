@@ -1,6 +1,6 @@
 # Aqui contém todos os comandos utilizados no bootcamp Linux Experience pela Digital Innovation One!
 
-## Gerenciando Usuários no Linux
+### Gerenciando Usuários no Linux
     Criando e excluindo usuários:
         - useradd nomedousuário
         - useradd nomedousuário -c "Comentário"
@@ -81,9 +81,9 @@
         Entendendo melhor as permissões de execução para scripts
         - nano date.sh
     
-    #!/bin/bash
-    echo "mensagem"
-    date
+        #!/bin/bash
+        echo "mensagem"
+        date
 
         - chmod 744 date.sh (dando permissão, dono leitura, gravação e execução. Grupo leitura e demais somente leitura)
 
@@ -92,7 +92,7 @@
         - chmod +x date.sh (dando permissão para o dono)
         - chmod -x date.sh (remove permissão para o dono)
   
-  ## Gerenciamento de pacotes Linux
+  ### Gerenciamento de pacotes Linux
     Gerenciamento de pacotes (UBUNTU-DEBIAN)
         - apt-get (mais antigo, menos amigável)
         - apt (mais atual, mais amigável)
