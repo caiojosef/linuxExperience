@@ -113,13 +113,87 @@
     - unrar nomedoarquivo
     - apt edit-sources (links de repositórios oficiais ubuntu)
 
+### Atualização do sistema operacional
+    - apt update (checar para ver se tem atualizações)
+    - apt list --upgradable (verificar o que será atualizado)
+    - apt upgrade (inicia a atualização)
 
-        
+### Instalação de pacotes no ambiente Desktop
+    - sudo apt install vlc
 
+### Gerenciamento de pacotes (FEDORA RED HAT CenTOS)
+    - dnf --help
+    - yum --help
+    - dnf search net-tools
+    - dnf install net-tools -y
+    - dnf remove net-tools -y
+    - yum install httpd
+    - dnf update (procura e instala as atualizações)
 
+### Realizando a instalação de arquivos DEB
+    - sudo apt install ./nomedoarquivo 
+  
+## Gerenciamento de Discos Linux
 
-
-
-
-
+### Discos, sistemas de arquivos e partições
+    Sistema de Arquivos
+        MacOS - HfS
+        Unix/Linux - Ext3, Ext4, XFS
+        Windows - FAT32, NFTS
     
+    Em cada partição do Windows é dada a letra A, B, C...
+    No Linux cada disco recebe um nome indicado por sda, sdb, sdc...
+
+### Adicionando um novo disco
+    - lsblk (ver discos e partições)
+    - fdisk -l (listar os discos)
+
+### Particionando e formatando discos via terminal
+    - fdisk /dev/sdb (indicar o local do disco)
+    (m para ajuda) 
+    (n adiciona uma nova partição)
+    (p de primária)
+    (colocar o número da partição, 1 no caso para primária)
+    (enter 2x para prosseguir selecionando os default correspondentes)
+    
+    - mkfs.ext3 / mkfs.ext4 /mkfs.ntfs /dev/sdb
+
+### Montando e desmontando discos
+    - cd /mnt/
+    - mkdir disco2 (criar pasta para montar o disco)
+    - mount /dev/sdb /mnt/disco2/ (montando o disco e colocando o diretório)
+    - cd disco2 (entrando na segunda partição)
+    (todo arquivo salvo aqui, será salva na segunda partição)
+    - umount /dev/sdb (desmonta o disco)
+  
+### Montando discos automaticamente
+    - lsblk
+    -  nano /etc/fstab
+    acrescentar a linha com o diretório do disco, para aonde vai e o formato. Adicionar no final defaults 0 0 
+    (/dev/sdb /disk2 ext4 defaults 0 0)
+
+## Copiando Arquivos e Manipulando Processos
+
+### Copiando arquivos
+    - cp --help
+    - cp diretório /home/caiojosef/nomedoarquivo.extensão /disk2 e o lugar que será direcionado!
+    - cp /home/caiojosef/*.txt todos os arquivos com extensão txt /disk2
+    - cp ./a* copiando todos os arquivos com o letra A e todas as extensões /disk2
+    - cp /home/caiojosef/* /disk2/ -i (pergunta para confirmar a cópia e se deseja sobrepor)
+    - cp /home/caiojosef/* /disk2/ -r (cópia recursiva)
+    - cp /home/caiojosef/* /disk2/ -r -v (visualiza tudo que foi feito)
+
+### Renomeando Movendo arquivos
+    - mv /home/caiojosef/arquivo.extensão e o lugar vai mover o arquivo /disk2/
+    - mv -v (visualiza o que está sendo feito)
+    - mv -i (perguntar se deseja sobrepor, caso tenha um arquivo com o mesmo nome)
+    - mv nomeatualdoarq.extensão novonomedoarq.extensão (serve para renomear, ex: mv bancodedados.txt banco_de_dados.txt)
+
+### Iniciando, visualizando e encerrando um processo
+    - ps (ver os processos, referente ao usuário atual)
+    - ps aux (A = mostra o processo de todos os usuários, U = mostra o usário, X = processos executados fora do console)
+    - kill PIN
+    - killall chrome 
+    - w (mostra quem está logado no momento)
+    - who -a (mostra o pin de quem está logado)
+    - kill PIN (derruba o usuário)
