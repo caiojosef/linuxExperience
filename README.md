@@ -293,4 +293,50 @@
     - killall chrome 
     - w (mostra quem está logado no momento)
     - who -a (mostra o pin de quem está logado)
-    - kill PIN (derruba o usuário)
+    - kill PIN (derruba o usuário) 
+
+## Servidores de Arquivos com Linux
+
+### Instalação do SAMBA e configuração inicial
+    - apt install samba -y (instalar o samba e permitir tudo)
+    - mkdir /disk2/publica
+    - chmod 777 /disk2/publica
+    - nano /etc/samba/smb.conf (realizar configurações do servidor)
+    (map to guest = bad user, indica que não possui restrição)
+    acrescentar no final o nome do compartilhamento
+    [nomedocompartilhamento]
+    path = /disk2/publica
+    writable = yes
+    guest ok = yes
+    guest only = yes
+
+    - systemctl restart smbd (restartar o samba)
+    - systemctl status smbd (verificar o status)
+    - systemctl enable smbd (executar auto ao reiniciar o sistema)
+
+## Criando um servidor Web com Linux
+
+### Instalando Apache2
+    - apt search apache (lista de aplicações do apache)
+    - apt install apache2 -y (instalar o apache 2)
+    - systemctl status apache2 (verificiar o status do apache 2 )
+    - cd /var/www/html (diretório do apache2)
+
+### Executando aplicações web em um servidor Linux
+    - sudo passwd root (atribuir senha ao root após conectar no serv aws)
+    - apt update -y (verificar atualizações no servidor)
+    - apt upgrade -y (instalar updates)
+    - apt install apache2 
+    - reboot (restart na máquina)
+
+## Servidor de Banco de Dados com Linux
+
+### Instalando o MySQL
+    - apt search mysql-server 
+    - apt install mysql-server-8.0 -y
+    - mysql -u root -p (acessar o mysql com o root)
+    - show databases; (mostrar listas do mysql)
+    - create database Pessoas; (Criar banco de dados)
+    - use Pessoas (usar o banco de dados pessoas)
+    - create table Nomes(PessoasID int, Nome varchar(50), Sobrenome varchar(50));
+    - exit (sair do mysql)
